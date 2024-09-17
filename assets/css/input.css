@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body{
+    @apply  flex justify-center flex-col gap-5  items-center h-screen pt-10 
+}
+ h1{
+  @apply font-black text-stone-700 dark:text-emerald-600 text-3xl uppercase
+ }
+
+.room {
+@apply dark:bg-gray-800;
+overflow: hidden;
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background-color: #fcb0c5;
+    transform-style: preserve-3d;
+    overflow: visible;
+  }
+  
+  .room::before {/* create left wall */
+    @apply dark:bg-gray-900;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: 700px;
+    height: 100%;
+    background-color: #f1a0b3;
+    transform:translateX(-89px) rotateY(42deg);
+    
+  }
+  
+  .room::after {
+    content: "";
+    bottom: -125px;
+    left: 0px;
+    width: 100%;
+    height: 500px;
+    background-color: #413b38;
+    transform: rotateX(60deg) translateX(0px)  ;
+    @apply dark:bg-stone-900 absolute ;
+    /* create floor */
+  }
+  #pic{
+    @apply w-24 h-24 absolute top-[20%] !z-40 left-[55%] object-cover  drop-shadow-md dark:brightness-[0.4]  dark:filter;
+    transform: translateZ(100px);
+    --tw-drop-shadow: drop-shadow(0 2px 2px #0c0c0c90);
+  }
+  #couch{
+    @apply absolute top-[51%] !z-40 left-[37%] w-1/2 object-cover drop-shadow-2xl  dark:brightness-[0.35]  dark:filter;
+    transform: translateZ(100px);
+    --tw-drop-shadow: drop-shadow(0 12px 5px #232323bb);
+  }
+/* Lamp Sec */
+#lamp{
+  @apply absolute top-[28%] !z-40 -right-10 w-1/3 object-cover cursor-pointer  drop-shadow-md dark:brightness-50 dark:contrast-150  dark:filter ;
+  transform: translateZ(190px);
+  --tw-drop-shadow: drop-shadow(0 1px 2px #232323bb);
+}
+.light{
+  content: '';
+    @apply absolute top-[22%] right-5  w-36 h-36 opacity-100 filter blur-xl rounded-full dark:bg-transparent bg-yellow-200  ;
+   
+}
+.btn{
+  @apply absolute top-[49%] !z-50 right-16 bg-amber-950 dark:bg-black h-2 w-2 rounded-full object-cover active:top-[56%] focus:top-[56%] hover:top-[56%];
+}
+.btn::before{
+  content: "";
+  @apply absolute bottom-0 left-[2.4px] border-[1.7px] border-dotted  border-amber-950 dark:border-black h-16  rounded-full object-cover ;
+}
+.fly{
+@apply w-1 h-[3px]  bg-stone-700 rounded-full absolute dark:hidden ;
+animation: myAnim 3s ease  infinite;
+transform: translateZ(350px);
+
+}
+
+@keyframes myAnim {
+	0%{
+    @apply top-[30%] right-9
+  }
+  25% {
+    @apply top-[45%] right-9 rotate-180
+    }
+	50%{
+    @apply top-[40%] right-11  rotate-12
+  }
+  75% {
+    @apply top-[43%] right-24 rotate-180
+    }
+  75% {
+	@apply top-[50%] right-28
+	}
+	100% {
+   @apply top-[30%] right-9 
+	}
+}
+
+#table{
+  @apply absolute top-[75%]  left-[50%] w-1/5 object-cover  dark:brightness-[0.45]  dark:filter;
+  transform: translateZ(190px);
+}
+.rug{
+  @apply absolute -bottom-[123%] left-[35%] w-[400px] h-[250px] bg-green-700 rounded-full dark:bg-[#205a39];
+    transform: rotateX(70deg)  translateZ(570px)  ;
+}
+.rug::after{
+  @apply absolute top-[11%] left-[26%] w-[200px] h-[200px] bg-green-700 rounded-full dark:bg-[#205a39] ;
+  content: "";
+  transform: rotateX(56deg)  translateZ(10px)  ;
+}
+.rug::before{
+  @apply absolute top-[18%]  left-[8%] w-[340px] h-[340px] bg-emerald-800 rounded-full  dark:bg-[#153c20];
+  content: "";
+  transform: rotateX(56deg)  translateZ(110px)  ;
+}
+
+.floorVase{
+  @apply absolute top-[61%]  left-[29%] w-24 object-cover drop-shadow-2xl  dark:brightness-[0.35]  dark:filter;
+  transform: translateZ(100px);
+ 
+}
+.tableVase{
+  @apply absolute top-[63%]  left-[55%] w-20 object-cover drop-shadow-2xl  dark:brightness-[0.35]  dark:filter;
+  transform: translateZ(200px);
+  --tw-drop-shadow: drop-shadow(0 0px 1px #232323bb);
+}
+.windowFrame{
+  content: "";
+  position: absolute;
+overflow: hidden;
+  top: 0;
+  left: -1px;
+  width: 350px;
+  height: 55%;
+  background-color: #759f91;
+  transform:rotateX(-12.8deg) rotateY(63.7deg) translateZ(620px) translateX(-1350px) translateY(-260px);
+  @apply dark:bg-[#181e1c] shadow-md shadow-zinc-700 dark:shadow-neutral-900;
+}
+.window{
+  content: "";
+  position: absolute;
+overflow: hidden;
+  top: 0;
+  left: -1px;
+  width: 300px;
+  height: 50%;
+  background-color: #4a16a2;
+  transform:rotateX(-13deg) rotateY(62deg) translateZ(700px) translateX(-1350px) translateY(-260px);
+}
+
+.window::before{
+  content: "";
+  position: absolute;
+  background-color: rgb(118, 36, 211);
+  width: 42px;
+  height: 100%;
+  right: 0;
+}
+.window::after{
+  content: "";
+  position: absolute;
+  background-color: rgb(58, 25, 119);
+  width:110%;
+  height: 20px;
+  bottom: 0;
+  right: 15px !important;
+  transform:skewX(73deg);
+}
+.winLight{
+  @apply absolute top-[12%] left-[215px] w-[250px] h-[405px] opacity-30 filter blur-2xl hidden dark:grid;
+  background: rgb(131,58,180);
+  transform: skewX(232deg) translateZ(150px) rotate(72deg);
+}
